@@ -106,7 +106,7 @@ export default function About() {
   return (
     <section ref={sectionRef} id="sobre" className="py-32 relative">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-20 items-center mb-24">
+        <div className="grid lg:grid-cols-2 gap-20 items-center ">
           {/* Left */}
           <div>
             <div className="about-tag inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-accent mb-6">
@@ -115,17 +115,13 @@ export default function About() {
             </div>
             <h2 className="about-headline font-display text-4xl md:text-5xl font-black leading-tight text-silver mb-8">
               Engenharia de software{" "}
-              <span className="gradient-text-accent">sem concessões</span>.
+              <span className="gradient-text-accent">sem complicação</span>.
             </h2>
             <p className="about-text font-body text-silver-dim text-lg leading-relaxed mb-6">
-              Somos uma software house especializada em soluções digitais de alta complexidade.
-              Nossa equipe combina expertise técnica com visão de negócio para entregar
-              produtos que realmente movem o ponteiro.
+              Somos uma micro agência de desenvolvimento focada em criar soluções digitais eficientes, sob medida e com propósito. Unimos conhecimento técnico com visão prática de negócio para desenvolver sistemas, sites e aplicações que realmente ajudam empresas a crescer.
             </p>
             <p className="about-text font-body text-silver-dim leading-relaxed">
-              Desde startups em crescimento acelerado até grandes corporações,
-              desenvolvemos sistemas que suportam milhões de requisições diárias
-              com confiabilidade e performance acima da média do mercado.
+              Trabalhamos lado a lado com nossos clientes, entendendo suas necessidades e transformando ideias em produtos funcionais, rápidos e escaláveis.
             </p>
           </div>
 
@@ -163,24 +159,6 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Differentials */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {differentials.map((diff) => (
-            <div
-              key={diff.title}
-              className={`diff-card card-glow border-gradient rounded-2xl p-6 ${diff.bg}`}
-            >
-              <div
-                className={`w-10 h-10 rounded-xl ${diff.bg} border ${diff.border} flex items-center justify-center mb-4`}
-              >
-                <diff.icon size={18} className={diff.color} />
-              </div>
-              <h3 className="font-display font-bold text-silver text-lg mb-2">{diff.title}</h3>
-              <p className="text-sm text-silver-dim font-body leading-relaxed">{diff.desc}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>
