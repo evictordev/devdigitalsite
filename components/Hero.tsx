@@ -1,174 +1,154 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function Hero() {
-  const heroRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const initGSAP = async () => {
-      const gsap = (await import("gsap")).default;
-
-      // Floating animation for orbs
-      gsap.to(".orb-1", {
-        y: -30,
-        x: 15,
-        duration: 8,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-      gsap.to(".orb-2", {
-        y: 20,
-        x: -20,
-        duration: 6,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: 1,
-      });
-      gsap.to(".orb-3", {
-        y: -15,
-        x: 25,
-        duration: 7,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: 2,
-      });
-    };
-
-    initGSAP();
-  }, []);
-
   return (
-    <section
-      ref={heroRef}
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden grid-overlay"
-    >
-      {/* Background orbs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="orb-1 absolute top-1/4 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        <div className="orb-2 absolute bottom-1/4 right-1/4 w-80 h-80 bg-teal/8 rounded-full blur-3xl" />
-        <div className="orb-3 absolute top-1/2 right-1/3 w-64 h-64 bg-accent/5 rounded-full blur-2xl" />
+    <section className="relative min-h-screen overflow-hidden bg-[#020826] flex items-center justify-center px-4">
+
+      {/* CONTAINER PRINCIPAL */}
+      <div className="relative w-full max-w-7xl h-[700px] flex items-center justify-center">
+
+        {/* ===================================================== */}
+        {/* SVG DAS LINHAS */}
+        {/* ===================================================== */}
+
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          viewBox="0 0 1400 700"
+          fill="none"
+        >
+
+          {/* LINHA ESQUERDA */}
+          <motion.path
+            d="M460 410 H320 V360 H260 V240"
+            stroke="white"
+            strokeWidth="2"
+            fill="transparent"
+            className="drop-shadow-[0_0_6px_white]"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{
+              duration: 1.8,
+              ease: "easeInOut",
+            }}
+          />
+
+          {/* SETA ESQUERDA */}
+          <motion.path
+            d="M252 250 L260 240 L268 250 Z"
+            fill="white"
+            className="drop-shadow-[0_0_6px_white]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: 1.5,
+              duration: 0.3,
+            }}
+          />
+
+          {/* LINHA DIREITA */}
+          <motion.path
+            d="M930 225 H1070 V260"
+            stroke="white"
+            strokeWidth="2"
+            fill="transparent"
+            className="drop-shadow-[0_0_6px_white]"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{
+              duration: 1.8,
+              delay: 0.3,
+              ease: "easeInOut",
+            }}
+          />
+
+          {/* SETA DIREITA */}
+          <motion.path
+            d="M1062 250 L1070 260 L1078 250 Z"
+            fill="white"
+            className="drop-shadow-[0_0_6px_white]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              delay: 1.8,
+              duration: 0.3,
+            }}
+          />
+        </svg>
+
+        {/* ===================================================== */}
+        {/* CARD ESQUERDO */}
+        {/* ===================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="absolute left-20 top-[95px]
+                     w-[325px] h-[145px]
+                     border border-[#f5a623]
+                     rounded-md
+                     bg-[#08112c]/80
+                     backdrop-blur-md
+                     p-3"
+        >
+          <h2 className="text-white text-3xl font-bold leading-tight">
+            Transformamos ideias em{" "}
+            <span className="text-[#f5a623]">Soluções</span> Digitais.
+          </h2>
+        </motion.div>
+
+        {/* ===================================================== */}
+        {/* LOGO */}
+        {/* ===================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 1,
+            ease: "easeOut",
+          }}
+          className="relative w-[350px] h-[350px] lg:w-[418px] lg:h-[334px]"
+        >
+          <Image
+            src="/hero/3dlogodevdigital.png"
+            alt="Logo"
+            fill
+            priority
+            quality={100}
+            className="object-contain"
+          />
+        </motion.div>
+
+        {/* ===================================================== */}
+        {/* CARD DIREITO */}
+        {/* ===================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{
+            duration: 1,
+            delay: 0.2,
+          }}
+          className="absolute right-12 top-[280px]
+                     w-[325px] h-[145px]
+                     border border-[#f5a623]
+                     rounded-md
+                     bg-[#08112c]/80
+                     backdrop-blur-md
+                     p-3"
+        >
+          <h2 className="text-white text-3xl font-bold leading-tight">
+            Experiências digitais que te deixam em{" "}
+            <span className="text-[#f5a623]">altíssimo nível</span>.
+          </h2>
+        </motion.div>
+
       </div>
-
-      {/* Scanline overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.02]"
-        style={{
-          backgroundImage: "repeating-linear-gradient(0deg, #fff 0px, #fff 1px, transparent 1px, transparent 4px)",
-        }}
-      />
-
-      <div className="relative max-w-7xl mx-auto px-6 pt-32 pb-20">
-        <div className="grid lg:grid-cols-2 gap-40 items-center">
-          {/* Left */}
-          <div>
-            <h1 className="hero-headline font-display text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] mb-6">
-              <span className="block text-silver">Transformamos ideias em</span>
-              <span className="block gradient-text-accent">Soluções</span>
-              <span className="block text-silver">Digitais.</span>
-            </h1>
-
-            <p className="hero-sub font-body text-lg text-silver-dim leading-relaxed mb-10 max-w-lg">
-              Desenvolvemos sistemas web, automações e APIs que escalam com sua empresa.
-              Cada linha de código é escrita com obsessão por performance e experiência.
-            </p>
-
-            <div className="hero-cta flex flex-wrap gap-4">
-              <a
-                href="#contato"
-                className="btn-shimmer inline-flex items-center gap-2 text-white font-body font-medium px-7 py-3.5 rounded-full text-sm"
-              >
-                Solicitar Orçamento
-                <ArrowRight size={16} />
-              </a>
-              <a
-                href="#servicos"
-                className="inline-flex items-center gap-2 text-silver-dim hover:text-silver font-body font-medium px-7 py-3.5 rounded-full text-sm border border-white/10 hover:border-white/20 transition-all duration-300"
-              >
-                Ver Serviços
-              </a>
-            </div>
-          </div>
-
-          {/* Right — Visual */}
-          <div className="hero-visual hidden lg:block relative">
-            <div className="relative">
-              {/* Code window */}
-              <div className="border-gradient rounded-2xl overflow-hidden">
-                <div className="flex items-center gap-2 px-5 py-3.5 bg-ink-muted/60 border-b border-white/5">
-                  <div className="w-3 h-3 rounded-full bg-red-400/70" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-400/70" />
-                  <div className="w-3 h-3 rounded-full bg-green-400/70" />
-                  <span className="ml-3 text-xs font-mono text-silver-dim">nexus-api.ts</span>
-                </div>
-                <div className="p-6 bg-ink-soft/80 backdrop-blur-sm font-mono text-sm leading-relaxed">
-                  <div className="text-silver-dim">
-                    <span className="text-purple-400">import</span>
-                    <span className="text-silver"> {"{ createServer }"} </span>
-                    <span className="text-purple-400">from</span>
-                    <span className="text-teal"> &apos;nexus&apos;</span>
-                  </div>
-                  <div className="mt-2">
-                    <span className="text-purple-400">const</span>
-                    <span className="text-accent"> server</span>
-                    <span className="text-silver"> = createServer{"({"}</span>
-                  </div>
-                  <div className="ml-4">
-                    <div>
-                      <span className="text-teal">port</span>
-                      <span className="text-silver">: </span>
-                      <span className="text-orange-300">3000</span>
-                      <span className="text-silver">,</span>
-                    </div>
-                    <div>
-                      <span className="text-teal">cache</span>
-                      <span className="text-silver">: </span>
-                      <span className="text-green-400">true</span>
-                      <span className="text-silver">,</span>
-                    </div>
-                    <div>
-                      <span className="text-teal">auth</span>
-                      <span className="text-silver">: </span>
-                      <span className="text-teal">&apos;jwt&apos;</span>
-                      <span className="text-silver">,</span>
-                    </div>
-                    <div>
-                      <span className="text-teal">monitoring</span>
-                      <span className="text-silver">: </span>
-                      <span className="text-green-400">true</span>
-                    </div>
-                  </div>
-                  <div className="text-silver">{"}"});</div>
-                  <div className="mt-3">
-                    <span className="text-purple-400">await</span>
-                    <span className="text-accent"> server</span>
-                    <span className="text-silver">.start();</span>
-                  </div>
-                  <div className="mt-3 flex items-center gap-2">
-                    <span className="inline-block w-2 h-4 bg-accent animate-pulse" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating badges */}
-              <div className="absolute -top-4 -right-4 bg-teal text-ink-soft text-xs font-mono font-bold px-3 py-1.5 rounded-full glow-teal animate-float-slow">
-                ✓ Online
-              </div>
-              <div className="absolute -bottom-4 -left-4 border-gradient rounded-xl px-4 py-2.5 bg-ink-soft">
-                <div className="text-xs text-silver-dim font-body">Latência média</div>
-                <div className="text-lg font-display font-bold text-teal">12ms</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-ink to-transparent pointer-events-none" />
     </section>
   );
 }

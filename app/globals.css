@@ -73,14 +73,6 @@
     linear-gradient(135deg, rgba(255, 184, 0, 0.8), rgba(255, 184, 0, 0.5)) border-box;
 }
 
-/* Grid overlay */
-.grid-overlay {
-  background-image:
-    linear-gradient(rgba(255, 184, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 184, 0, 0.05) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
 /* Process line animation */
 .process-line {
   background: linear-gradient(to bottom, #FFB800, #4DB8A8);
