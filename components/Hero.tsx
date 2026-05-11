@@ -2,13 +2,42 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import HeroBackground from "./ui/HeroBackground";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#020826] flex items-center justify-center px-4">
+      
+      {/* HERO BACKGROUND */}
+      <div className="absolute inset-0 z-0">
+        <HeroBackground 
+          color1="#051050"
+          color2="#12083a"
+          color3="#0f0c4f"
+          timeSpeed={0.25}
+          colorBalance={-0.05}
+          warpStrength={1.95}
+          warpFrequency={5}
+          warpSpeed={2}
+          warpAmplitude={50}
+          blendAngle={0}
+          blendSoftness={0.05}
+          rotationAmount={500}
+          noiseScale={2}
+          grainAmount={0}
+          grainScale={2}
+          grainAnimated={false}
+          contrast={1.5}
+          gamma={1}
+          saturation={1}
+          centerX={0}
+          centerY={0}
+          zoom={0.9}
+        />
+      </div>
 
       {/* CONTAINER PRINCIPAL */}
-      <div className="relative w-full max-w-7xl h-[700px] flex items-center justify-center">
+      <div className="relative z-10 w-full max-w-7xl h-[900px] flex items-center justify-center">
 
         {/* ===================================================== */}
         {/* SVG DAS LINHAS */}
@@ -86,7 +115,7 @@ export default function Hero() {
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="absolute left-20 top-[95px]
+          className="absolute left-20 top-[195px]
                      w-[325px] h-[145px]
                      border border-[#f5a623]
                      rounded-md
@@ -134,7 +163,7 @@ export default function Hero() {
             duration: 1,
             delay: 0.2,
           }}
-          className="absolute right-12 top-[280px]
+          className="absolute right-12 top-[380px]
                      w-[325px] h-[145px]
                      border border-[#f5a623]
                      rounded-md
@@ -146,6 +175,32 @@ export default function Hero() {
             Experiências digitais que te deixam em{" "}
             <span className="text-[#f5a623]">altíssimo nível</span>.
           </h2>
+        </motion.div>
+
+        {/* ===================================================== */}
+        {/* SEÇÃO DE CTA - ABAIXO DA LOGO */}
+        {/* ===================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="absolute top-[680px] flex flex-col items-center gap-9 z-20"
+        >
+          <p className="text-white text-center text-base max-w-2xl leading-relaxed">
+            Transforme sua visão em realidade com soluções digitais inovadoras. 
+            Estamos prontos para levar seu negócio ao próximo nível.
+          </p>
+
+          <div className="flex gap-5 flex-wrap justify-center">
+            <button className="w-[200] h-[50] bg-[#ffb800] text-[#ffffff] font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 group">
+              Solicitar Orçamento
+              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </button>
+            <button className="w-[200] h-[50] border border-[#ffffff] text-[#ffffff] hover:bg-[#f5a623]/10 font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 active:scale-95">
+              Ver Serviços
+            </button>
+          </div>
         </motion.div>
 
       </div>
