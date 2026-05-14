@@ -35,6 +35,10 @@ export default function Hero() {
           zoom={0.9}
         />
       </div>
+      {/* GRADIENT OVERLAY PARA TRANSIÇÃO SUAVE */}
+      {/* Transiciona da cor de fundo da próxima seção (ink) para transparente, criando uma fusão visual. */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 z-10 bg-gradient-to-t from-ink to-transparent pointer-events-none">
+      </div>
 
       {/* CONTAINER PRINCIPAL */}
       <div className="relative z-10 w-full max-w-7xl h-[900px] flex items-center justify-center">
